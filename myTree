@@ -1,0 +1,74 @@
+git init
+
+
+alias gg='git log --oneline --abbrev-commit --branches=* --graph --decorate --color'
+alias D='date +"%Y%m%d_%H%M%S"'
+
+function cc() {
+   touch $(date +"%Y%m%d_%H%M%Si").txt
+   git add --all
+   git commit -m $1
+   sleep 1
+}
+
+cc "A1"
+cc "A2"
+
+git checkout -b Branch_B
+cc "B1"
+cc "B2"
+
+git checkout -b Branch_B_B
+cc "B_B1"
+cc "B_B2"
+
+git checkout -b Branch_C
+cc "C1"
+cc "C2"
+
+git checkout -b Branch_D
+cc "D1"
+cc "D2"
+
+git checkout -b Branch_E
+cc "E1"
+cc "E2"
+
+git checkout Branch_B
+cc "B3"
+cc "B4"
+cc "B5"
+
+git checkout -B Branch_B_B
+cc "B_B3"
+cc "B_B4"
+cc "B_B5"
+
+git checkout  Branch_C
+cc "C3"
+cc "C4"
+
+git checkout  Branch_D
+cc "D3"
+cc "D4"
+
+git checkout Branch_E
+cc "E3"
+cc "E4"
+
+git checkout  Branch_C
+cc "C5"
+cc "C6"
+
+git checkout  Branch_D
+cc "D5"
+cc "D6"
+
+git checkout Branch_E
+cc "E5"
+cc "E6"
+
+
+git checkout master
+cc "A3"
+cc "A4"
